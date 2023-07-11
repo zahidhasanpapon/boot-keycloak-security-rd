@@ -23,8 +23,8 @@ public class SecurityConfig {
         httpSecurity
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.GET, "/test/anonymous", "/test/anonymous/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/test/admin", "/test/admin/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET, "/test/user").hasAnyRole("ADMIN", "USER")
+                        .requestMatchers(HttpMethod.GET, "/test/admin", "/test/admin/**").hasRole(ADMIN)
+                        .requestMatchers(HttpMethod.GET, "/test/user").hasAnyRole(ADMIN, USER)
                         .anyRequest().authenticated()
                 );
         httpSecurity
